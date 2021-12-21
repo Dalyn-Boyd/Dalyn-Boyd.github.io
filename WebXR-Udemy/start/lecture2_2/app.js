@@ -27,7 +27,7 @@ class App{
 
 		// Renderer
 		// need antialiasing to precent jagged edges
-		this.renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true } );
+		this.renderer = new THREE.WebGLRenderer({ antialias: true } );
 		// important so things are blurry
 		this.renderer.setPixelRatio( window.devicePixelRatio );
 		// filling the window
