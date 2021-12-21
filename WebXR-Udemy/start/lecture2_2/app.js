@@ -14,7 +14,7 @@ class App{
 
 		// Scene
 		this.scene = new THREE.Scene();
-		this.scene.background = new THREE.Color( 0xAAAAAA );
+		this.scene.background = new THREE.Color( 0xB4A7D6 );
 
 		// Renderer
 		// need antialiasing to precent jagged edges
