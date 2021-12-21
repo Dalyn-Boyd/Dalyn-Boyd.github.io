@@ -34,27 +34,28 @@ class App{
 		this.renderer.setSize(window.innerWidth, window.innerHeight);
 		// domElement is created
 		container.appendChild(this.renderer.domElement);
-		
-		this.renderer.setAnimationLoop(this.render.bind(this));
 
 		// an object you can see is usually a mesh instance
 
 		// create a box, since there are no params it is 1 unit big
 		const geometry = new THREE.BoxBufferGeometry();
 		// assign a red material
-		const material = new THREE.MeshStandardMaterial({color: 0xff0000});
-
-		this.mesh = new THREE.Mesh(geometry, material);
+        const material = new THREE.MeshStandardMaterial( { color: 0xFF0000 });
+        this.mesh = new THREE.Mesh( geometry, material );
 
 		this.scene.add(this.mesh);
 
 		const controls = new OrbitControls(this.camera, this.render.domElement);
 
+		this.renderer.setAnimationLoop(this.render.bind(this));
+
         window.addEventListener('resize', this.resize.bind(this));
 	}	
     
     resize(){
-        
+        this.camera.aspect = window.innerWidth/window.innerHeight;
+		this.camera.updateProjectMatrix();
+		this.renderer.setSize(window.innerWidth, window.innerHeight);
     }
     
 	render( ) {  
