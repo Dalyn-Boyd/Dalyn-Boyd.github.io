@@ -16,6 +16,15 @@ class App{
 		this.scene = new THREE.Scene();
 		this.scene.background = new THREE.Color( 0xB4A7D6 );
 
+		// hemisphere light has diff color for surfaces pointing down and up, intensity is 0.3
+		const ambient = new THREE.HemisphereLight(0xffffff, 0xbbbbff, 0.3)
+		this.scene.add(ambient)
+
+		// points from it's position to the origin, or a target object if one is assigned
+		const light = new THREE.DirectionalLight();
+		light.position.set(0.2, 1, 1);
+		this.scene.add(light);
+
 		// Renderer
 		// need antialiasing to precent jagged edges
 		this.renderer = new THREE.WebGLRenderer( {antialias: true});
@@ -28,6 +37,15 @@ class App{
 		
 		this.renderer.setAnimationLoop(this.render.bind(this));
 
+		// an object you can see is usually a mesh instance
+
+		// create a box, since there are no params it is 1 unit big
+		const geometry = new THREE.BoxBufferGeometry();
+		// assign a red material
+		const material = new THREE.MeshStandardMaterial( {color: 0xff0000} );
+
+		this.scene.add(this.mesh);
+
         window.addEventListener('resize', this.resize.bind(this) );
 	}	
     
@@ -36,6 +54,7 @@ class App{
     }
     
 	render( ) {  
+		this.mesh.rotateY(0.01);
         this.renderer.render(this.scene, this.camera)
     }
 }
