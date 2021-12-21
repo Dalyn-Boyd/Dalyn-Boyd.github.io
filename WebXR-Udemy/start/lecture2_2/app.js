@@ -14,7 +14,7 @@ class App{
 
 		// Scene
 		this.scene = new THREE.Scene();
-		this.scene.background = new THREE.Color( 0xB4A7D6 );
+		this.scene.background = new THREE.Color( 0xaaaaaa );
 
 		// hemisphere light has diff color for surfaces pointing down and up, intensity is 0.3
 		const ambient = new THREE.HemisphereLight(0xffffff, 0xbbbbff, 0.3);
@@ -27,7 +27,7 @@ class App{
 
 		// Renderer
 		// need antialiasing to precent jagged edges
-		this.renderer = new THREE.WebGLRenderer({ antialias: true } );
+		this.renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true } );
 		// important so things are blurry
 		this.renderer.setPixelRatio( window.devicePixelRatio );
 		// filling the window
@@ -40,7 +40,7 @@ class App{
 		// create a box, since there are no params it is 1 unit big
 		const geometry = new THREE.BoxBufferGeometry();
 		// assign a red material
-        const material = new THREE.MeshStandardMaterial( { color: 0x7EEAE9 });
+        const material = new THREE.MeshStandardMaterial( { color: 0xFF0000 });
         
 		this.mesh = new THREE.Mesh( geometry, material );
 
