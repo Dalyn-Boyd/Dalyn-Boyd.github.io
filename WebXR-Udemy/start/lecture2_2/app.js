@@ -40,7 +40,7 @@ class App{
 		// create a box, since there are no params it is 1 unit big
 		const geometry = new THREE.BoxBufferGeometry();
 		// assign a red material
-        const material = new THREE.MeshStandardMaterial( { color: 0xFF0000 });
+        const material = new THREE.MeshStandardMaterial( { color: 0x7EEAE9 });
         
 		this.mesh = new THREE.Mesh( geometry, material );
 
