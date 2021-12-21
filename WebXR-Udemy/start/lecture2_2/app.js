@@ -27,7 +27,7 @@ class App{
 
 		// Renderer
 		// need antialiasing to precent jagged edges
-		this.renderer = new THREE.WebGLRenderer({antialias: true});
+		this.renderer = new THREE.WebGLRenderer({antialias: true, alpha: true});
 		// important so things are blurry
 		this.renderer.setPixelRatio(window.devicePixelRatio);
 		// filling the window
@@ -41,7 +41,8 @@ class App{
 		const geometry = new THREE.BoxBufferGeometry();
 		// assign a red material
         const material = new THREE.MeshStandardMaterial( { color: 0xFF0000 });
-        this.mesh = new THREE.Mesh( geometry, material );
+        
+		this.mesh = new THREE.Mesh( geometry, material );
 
 		this.scene.add(this.mesh);
 
